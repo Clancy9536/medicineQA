@@ -1,0 +1,63 @@
+import model.ParaphraseModel;
+import model.QueryClassifyModel;
+import model.QueryMappingModel;
+import model.SemanticQueryGraph;
+import nlp.DependencyTreeCore;
+import nlp.NlpTool;
+import structs.StructuredQuery;
+import structs.Triple;
+
+import java.io.File;
+import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+
+/**
+ * Author: wangqing9536@gmail.com
+ * Date: 7/27/2019
+ * TIME: 8:53 AM
+ * Description:
+ * ReturnValue:
+ **/
+
+public class Main {
+    private static boolean isLoaded = false;
+    private static NlpTool nplTool;
+    private static ParaphraseModel pm;
+    private static SemanticQueryGraph sqgMOdel;
+    private static QueryClassifyModel qcModel;
+    private static QueryMappingModel qmModel;
+
+    public static void main (String[] args) {
+        load();
+        String question = "感冒灵适用的病是什么？";
+        OutputStreamWriter writer = new OutputStreamWriter(System.out);
+        ArrayList<StructuredQuery> sparql = getStructuredQueryList(question, writer);
+
+
+    }
+
+    private static ArrayList<StructuredQuery> getStructuredQueryList(String question, OutputStreamWriter writer) {
+        File outputFile = new File("./data/knowledgebase/query_out.txt");
+        ArrayList<Triple> tripleList = null;
+        ArrayList<StructuredQuery> sparqlRankedList = null;
+        long t1  = System.currentTimeMillis();
+
+        // step 1: generate dependency tree
+        DependencyTreeCore ds = new DependencyTreeCore(rawInput, nlpTool, pm, writer);
+        long t2  = System.currentTimeMillis();
+
+    }
+
+    private static void load() {
+        if (!isLoaded) {
+            nplTool = new NlpTool();
+            pm = new ParaphraseModel();
+            sqgMOdel = new SemanticQueryGraph(pm);
+            qcModel = new QueryClassifyModel(pm);
+            qmModel = new QueryMappingModel();
+            isLoaded = true;
+        }
+
+
+    }
+}
