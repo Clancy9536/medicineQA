@@ -36,16 +36,23 @@ public class Main {
 
     }
 
-    private static ArrayList<StructuredQuery> getStructuredQueryList(String question, OutputStreamWriter writer) {
+    private static ArrayList<StructuredQuery> getStructuredQueryList(String sentence, OutputStreamWriter writer) {
         File outputFile = new File("./data/knowledgebase/query_out.txt");
-        ArrayList<Triple> tripleList = null;
+        ArrayList<Triple> tripleList;
         ArrayList<StructuredQuery> sparqlRankedList = null;
-        long t1  = System.currentTimeMillis();
-
+        long t  = System.currentTimeMillis();
         // step 1: generate dependency tree
-        DependencyTreeCore ds = new DependencyTreeCore(rawInput, nlpTool, pm, writer);
-        long t2  = System.currentTimeMillis();
+        DependencyTreeCore ds = new DependencyTreeCore(sentence, nplTool, pm, writer);
 
+
+        // step 2: query classify
+        QueryClassifyModel.queryType type = qcModel.QueryClassify(ds);
+        System.out.println("Query classify: " + type);
+
+
+
+        System.out.println("sparql generating time = "+(System.currentTimeMillis()-t)+"ms");
+        return sparqlRankedList;
     }
 
     private static void load() {
