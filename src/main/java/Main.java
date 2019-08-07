@@ -23,7 +23,7 @@ public class Main {
     private static boolean isLoaded = false;
     private static NlpTool nplTool;
     private static ParaphraseModel pm;
-    private static SemanticQueryGraph sqgMOdel;
+    private static SemanticQueryGraph sqgModel;
     private static QueryClassifyModel qcModel;
     private static QueryMappingModel qmModel;
 
@@ -49,6 +49,21 @@ public class Main {
         QueryClassifyModel.queryType type = qcModel.QueryClassify(ds);
         System.out.println("Query classify: " + type);
 
+        // step 3: generate semantic query graph
+        sqgModel.buildSemanticQueryGraph(ds,type);
+        tripleList = sqgModel.getTripleList();
+
+        // step 4: generate SPARQL
+        sparqlRankedList = qmModel.getSparqlList(tripleList);
+
+        int sqNum=0;
+        if(sparqlRankedList != null)
+            for (StructuredQuery sq : sparqlRankedList)
+            {
+                System.out.println("["+ (++sqNum) + "] " + sq.score);
+                System.out.println(sq);
+				//writer.write("sparql:\n"+sq);
+            }
 
 
         System.out.println("sparql generating time = "+(System.currentTimeMillis()-t)+"ms");
@@ -59,7 +74,7 @@ public class Main {
         if (!isLoaded) {
             nplTool = new NlpTool();
             pm = new ParaphraseModel();
-            sqgMOdel = new SemanticQueryGraph(pm);
+            sqgModel = new SemanticQueryGraph(pm);
             qcModel = new QueryClassifyModel(pm);
             qmModel = new QueryMappingModel();
             isLoaded = true;

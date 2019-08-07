@@ -18,7 +18,7 @@ import java.util.Queue;
 
 public class QueryClassifyModel {
     public boolean containInstanceMedicine;
-    public boolean ContainInstanceIllness ;
+    public boolean containInstanceIllness ;
     public boolean containConceptMedicine;
     public boolean containConceptIllness;
     public boolean containPredicateMedicine;
@@ -58,11 +58,10 @@ public class QueryClassifyModel {
             String name = h.word.name;
             String posTag = h.posTag;
 
-            // 这里直接用 分词的posTag进行判断合适吗？用entity searcher和paraphraseModel判断是不是更好
             if(posTag.equals("entity-medicine"))
                 containInstanceMedicine = true;
             if(posTag.equals("entity-illness"))
-                ContainInstanceIllness = true;
+                containInstanceIllness = true;
 
             if(posTag.equals("type-medicine"))
                 containConceptMedicine = true;
@@ -81,18 +80,18 @@ public class QueryClassifyModel {
         }
 
         //Medicine
-        if(containInstanceMedicine && ContainInstanceIllness)
+        if(containInstanceMedicine && containInstanceIllness)
             type = queryType.unresolved;
-        else if(containInstanceMedicine)
+        else if(containInstanceMedicine)    //感冒灵
         {
-            if(containConceptIllness || containPredicateM2I)
+            if(containConceptIllness || containPredicateM2I)    //
                 type = queryType.askIllness;
             else if(containPredicateMedicine)
                 type = queryType.askAttribute;
             else
                 type = queryType.askMedicine;
         }
-        else if(ContainInstanceIllness)
+        else if(containInstanceIllness)
         {
             if(containConceptMedicine)
                 type = queryType.askMedicine;
@@ -107,7 +106,6 @@ public class QueryClassifyModel {
             type = queryType.askMedicine;
         else if(containConceptIllness)
             type = queryType.askIllness;
-
         else
             type = queryType.unresolved;
 
@@ -117,7 +115,7 @@ public class QueryClassifyModel {
     void init()
     {
         containInstanceMedicine = false;
-        ContainInstanceIllness = false;
+        containInstanceIllness = false;
         containConceptMedicine = false;
         containConceptIllness = false;
         containPredicateMedicine = false;

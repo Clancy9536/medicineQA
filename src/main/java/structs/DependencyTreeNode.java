@@ -21,6 +21,7 @@ public class DependencyTreeNode {
     public ArrayList<DependencyTreeNode> childrenList;
     public String posTag;
     public Item word;
+    public boolean used = false;
 
     public DependencyTreeNode(Item w, String p)
     {
@@ -29,6 +30,32 @@ public class DependencyTreeNode {
         this.childrenList = new ArrayList<DependencyTreeNode>();
     }
 
+    public DependencyTreeNode clone()
+    {
+        DependencyTreeNode ret = null;
+        try
+        {
+            ret = (DependencyTreeNode)super.clone();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        ret.word = this.word.clone();
+        ret.dep_father2child = this.dep_father2child;
+        ret.posTag = this.posTag;
+        ret.levelInTree = this.levelInTree;
+        //ret.childrenList = (ArrayList<DependencyTreeNode>) this.childrenList.clone();
+        ret.childrenList = new ArrayList<DependencyTreeNode>();
+        for(DependencyTreeNode dtn: this.childrenList)
+        {
+            ret.childrenList.add(dtn.clone());
+        }
+        if(this.father != null)
+            ret.father = this.father;//这里没有完全深度clone，否则会提示stackOverflow
+
+        return ret;
+    }
     public void sortChildrenList () {
         childrenList.trimToSize();
         Collections.sort(childrenList, new DependencyTreeNodeComparator());

@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="804009f5-4ed0-4817-b3ac-3290079eb1fe" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/medicineQA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/medicineQA.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/QueryClassifyModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/QueryClassifyModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SemanticQueryGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/SemanticQueryGraph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nlp/DependencyTreeCore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nlp/DependencyTreeCore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nlp/NlpTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nlp/NlpTool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/structs/DependencyTreeNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/structs/DependencyTreeNode.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,16 +20,15 @@
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
+    <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="48" column="56" lean-forward="true" selection-start-line="48" selection-start-column="56" selection-end-line="48" selection-end-column="56" />
+            <state relative-caret-position="131">
+              <caret line="56" column="39" selection-start-line="56" selection-start-column="39" selection-end-line="56" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -42,43 +39,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/nlp/DependencyTreeCore.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2337">
-              <caret line="156" column="30" selection-start-line="156" selection-start-column="30" selection-end-line="156" selection-end-column="30" />
+            <state relative-caret-position="-2">
+              <caret line="15" column="33" lean-forward="true" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#656#1144#1" />
-                <element signature="e#1193#1640#1" />
-                <element signature="e#1703#1723#0" expanded="true" />
-                <element signature="e#3295#3315#0" expanded="true" />
-                <element signature="e#3369#3389#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/QueryClassifyModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="90" column="41" selection-start-line="90" selection-start-column="41" selection-end-line="90" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="method#clone#0;class#DependencyTreeCore#0" />
+                <element signature="method#DependencyTreeCore#0;class#DependencyTreeCore#0" />
+                <element signature="method#bfsDependencyTree#0;class#DependencyTreeCore#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/ParaphraseModel.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/structs/DependencyTreeNode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+            <state relative-caret-position="264">
+              <caret line="52" column="9" lean-forward="true" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#599#633#0" expanded="true" />
-                <element signature="method#loadRelationParaphraseDict#0;class#ParaphraseModel#0" />
-                <element signature="method#getRelatedCondition#0;class#ParaphraseModel#0" />
-                <element signature="method#getRelatedRelation#0;class#ParaphraseModel#0" />
+                <element signature="method#sortChildrenList#0;class#DependencyTreeNode#0" />
               </folding>
             </state>
           </provider>
@@ -96,7 +76,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/nlp/NlpTool.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
+            <state relative-caret-position="665">
               <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="52" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -109,8 +89,24 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/model/SemanticQueryGraph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+            <state relative-caret-position="413">
+              <caret line="605" column="8" selection-start-line="605" selection-start-column="8" selection-end-line="605" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#buildSemanticQueryGraph#0;class#SemanticQueryGraph#0" />
+                <element signature="method#buildAskIllness#0;class#SemanticQueryGraph#0" />
+                <element signature="method#buildAskMedicine#0;class#SemanticQueryGraph#0" />
+                <element signature="method#buildAskAttribute#0;class#SemanticQueryGraph#0" />
+                <element signature="method#findTypes#0;class#SemanticQueryGraph#0" />
+                <element signature="method#findPredicates#0;class#SemanticQueryGraph#0" />
+                <element signature="method#findEntities#0;class#SemanticQueryGraph#0" />
+                <element signature="method#findConditions#0;class#SemanticQueryGraph#0" />
+                <element signature="method#findNeibors#0;class#SemanticQueryGraph#0" />
+                <element signature="method#reload#0;class#SemanticQueryGraph#0" />
+                <element signature="e#18150#19149#1" />
+                <element signature="e#22545#23977#1" />
+                <element signature="e#21688#23450#1" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -124,6 +120,14 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>ContainInstanceIllness</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>containInstanceIllness</replace>
+    </replaceStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -135,19 +139,22 @@
         <option value="$PROJECT_DIR$/src/nlp/NlpTool.java" />
         <option value="$PROJECT_DIR$/src/main/java/structs/Item.java" />
         <option value="$PROJECT_DIR$/src/main/java/structs/ItemAndScore.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/SemanticQueryGraph.java" />
         <option value="$PROJECT_DIR$/src/main/java/structs/Triple.java" />
         <option value="$PROJECT_DIR$/src/main/java/structs/StructuredQuery.java" />
         <option value="$PROJECT_DIR$/src/main/java/nlp/NlpTool.java" />
-        <option value="$PROJECT_DIR$/src/main/java/structs/DependencyTreeNode.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/lcn/BuildEntityIndex.java" />
         <option value="$PROJECT_DIR$/src/main/java/lcn/EntitySearcher.java" />
         <option value="$PROJECT_DIR$/src/main/java/utils/EditDistance.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/ParaphraseModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/nlp/DependencyTreeCore.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/QueryClassifyModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nlp/DependencyTreeCore.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lcn/FragmentChecker.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lcn/BuildFragmentIndex.java" />
+        <option value="$PROJECT_DIR$/src/main/java/structs/DependencyTreeNode.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lcn/RelationSearcher.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/SemanticQueryGraph.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
       </list>
     </option>
   </component>
@@ -170,8 +177,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-2" />
-    <option name="y" value="155" />
+    <option name="x" value="338" />
+    <option name="y" value="104" />
     <option name="width" value="1378" />
     <option name="height" value="539" />
   </component>
@@ -237,6 +244,12 @@
               <item name="medicineQA" type="b2602c69:ProjectViewProjectNode" />
               <item name="medicineQA" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="fragment" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="medicineQA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="medicineQA" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
               <item name="knowledgebase" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -295,7 +308,23 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="nlp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="medicineQA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="medicineQA" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="structs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="medicineQA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="medicineQA" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -341,37 +370,37 @@
       <workItem from="1564275502077" duration="9399000" />
       <workItem from="1564287500353" duration="4942000" />
       <workItem from="1564306128743" duration="1168000" />
-      <workItem from="1565058110254" duration="13562000" />
+      <workItem from="1565058110254" duration="13808000" />
+      <workItem from="1565139907657" duration="10250000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35608000" />
+    <option name="totallyTimeSpent" value="46104000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18003026" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18229954" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.04918033" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.04918033" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.04918033" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32907802" />
-      <window_info anchor="right" id="Maven" weight="0.32980332" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -381,6 +410,7 @@
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="right" id="Maven Projects" order="8" weight="0.17804877" />
+      <window_info anchor="right" id="Maven" order="9" weight="0.32980332" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -456,13 +486,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/SemanticQueryGraph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/libs/fnlp-core-2.1-SNAPSHOT.jar!/org/fnlp/nlp/parser/dep/DependencyTree.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -481,24 +504,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/QueryMappingModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nlp/NlpTool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="52" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#NlpTool#0;class#NlpTool#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
@@ -506,35 +511,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/lucene-core-8.2.0.jar!/org/apache/lucene/search/IndexSearcher.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="69" column="31" selection-start-line="69" selection-start-column="31" selection-end-line="69" selection-end-column="31" />
-          <folding>
-            <element signature="e#2501#2502#0" expanded="true" />
-            <element signature="e#2553#2554#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/lucene-core-8.2.0.jar!/org/apache/lucene/index/IndexReader.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="83" column="44" selection-start-line="83" selection-start-column="44" selection-end-line="83" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/structs/DependencyTreeNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="42" column="1" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#sortChildrenList#0;class#DependencyTreeNode#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$PROJECT_DIR$/libs/lucene-core-8.2.0.jar!/org/apache/lucene/search/IndexSearcher.class" />
+    <entry file="jar://$PROJECT_DIR$/libs/lucene-core-8.2.0.jar!/org/apache/lucene/index/IndexReader.class" />
     <entry file="jar://$PROJECT_DIR$/libs/lucene-core-2.0.0.jar!/org/apache/lucene/queryParser/QueryParser.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
@@ -585,28 +563,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nlp/DependencyTreeCore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2337">
-          <caret line="156" column="30" selection-start-line="156" selection-start-column="30" selection-end-line="156" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#656#1144#1" />
-            <element signature="e#1193#1640#1" />
-            <element signature="e#1703#1723#0" expanded="true" />
-            <element signature="e#3295#3315#0" expanded="true" />
-            <element signature="e#3369#3389#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/ParaphraseModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
+        <state relative-caret-position="513">
           <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#599#633#0" expanded="true" />
             <element signature="method#loadRelationParaphraseDict#0;class#ParaphraseModel#0" />
             <element signature="method#getRelatedCondition#0;class#ParaphraseModel#0" />
             <element signature="method#getRelatedRelation#0;class#ParaphraseModel#0" />
@@ -614,20 +576,124 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/nlp/NlpTool.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="48" column="56" lean-forward="true" selection-start-line="48" selection-start-column="56" selection-end-line="48" selection-end-column="56" />
+        <state relative-caret-position="665">
+          <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="52" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#NlpTool#0;class#NlpTool#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/QueryClassifyModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="90" column="41" selection-start-line="90" selection-start-column="41" selection-end-line="90" selection-end-column="41" />
+        <state relative-caret-position="511">
+          <caret line="107" column="40" selection-start-line="107" selection-start-column="40" selection-end-line="107" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1068#1069#0" expanded="true" />
+            <element signature="e#1110#1111#0" expanded="true" />
+            <element signature="method#init#0;class#QueryClassifyModel#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/QueryMappingModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nlp/DependencyTreeCore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2">
+          <caret line="15" column="33" lean-forward="true" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#clone#0;class#DependencyTreeCore#0" />
+            <element signature="method#DependencyTreeCore#0;class#DependencyTreeCore#0" />
+            <element signature="method#bfsDependencyTree#0;class#DependencyTreeCore#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/fragment/entity_fragment.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lcn/BuildFragmentIndex.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="59" column="57" lean-forward="true" selection-start-line="59" selection-start-column="57" selection-end-line="59" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#main#0;class#BuildFragmentIndex#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/structs/DependencyTreeNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="52" column="9" lean-forward="true" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#sortChildrenList#0;class#DependencyTreeNode#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lcn/RelationSearcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="56" column="45" selection-start-line="56" selection-start-column="45" selection-end-line="56" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#RelationSearcher#0;class#RelationSearcher#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lcn/FragmentChecker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#FragmentChecker#0;class#FragmentChecker#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/SemanticQueryGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="605" column="8" selection-start-line="605" selection-start-column="8" selection-end-line="605" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#buildSemanticQueryGraph#0;class#SemanticQueryGraph#0" />
+            <element signature="method#buildAskIllness#0;class#SemanticQueryGraph#0" />
+            <element signature="method#buildAskMedicine#0;class#SemanticQueryGraph#0" />
+            <element signature="method#buildAskAttribute#0;class#SemanticQueryGraph#0" />
+            <element signature="method#findTypes#0;class#SemanticQueryGraph#0" />
+            <element signature="method#findPredicates#0;class#SemanticQueryGraph#0" />
+            <element signature="method#findEntities#0;class#SemanticQueryGraph#0" />
+            <element signature="method#findConditions#0;class#SemanticQueryGraph#0" />
+            <element signature="method#findNeibors#0;class#SemanticQueryGraph#0" />
+            <element signature="method#reload#0;class#SemanticQueryGraph#0" />
+            <element signature="e#18150#19149#1" />
+            <element signature="e#22545#23977#1" />
+            <element signature="e#21688#23450#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="56" column="39" selection-start-line="56" selection-start-column="39" selection-end-line="56" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

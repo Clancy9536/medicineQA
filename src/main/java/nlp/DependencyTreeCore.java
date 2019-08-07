@@ -25,6 +25,28 @@ public class DependencyTreeCore {
     public DependencyTree odt;
     public ArrayList<DependencyTreeNode> nodesList;
 
+    public DependencyTreeCore clone()
+    {
+        DependencyTreeCore ret = null;
+        try
+        {
+            ret = (DependencyTreeCore)super.clone();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        //ret.nodesList = (ArrayList<DependencyTreeNode>) this.nodesList.clone();
+        ret.nodesList = new ArrayList<DependencyTreeNode>();
+        if(this.nodesList != null)
+            for(DependencyTreeNode dtn: this.nodesList)
+                ret.nodesList.add(dtn.clone());
+
+        if(this.root != null)
+            ret.root = this.root.clone();
+
+        return ret;
+    }
 
     public DependencyTreeCore (String sentence, NlpTool nlptool, ParaphraseModel pm, OutputStreamWriter writer)
     {
