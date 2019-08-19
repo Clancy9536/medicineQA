@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="PROJECT" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/data/knowledgebase/medicine_data.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/data/paraphrase/relation_paraphrase_dictionary.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/models/dictCh.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Main.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/lcn/BuildEntityIndex.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/lcn/BuildFragmentIndex.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/model/ParaphraseModel.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/nlp/DependencyTreeCore.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/nlp/NlpTool.java" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

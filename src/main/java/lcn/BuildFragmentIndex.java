@@ -13,26 +13,28 @@ import java.io.InputStreamReader;
 
 /**
  * Author: wangqing31@midea.com
- * Date: 2019-8-6
- * Time: 16:40
+ * Date: 2019-8-7
+ * Time: 10:26
  * Description:
  * ReturnValue:
  */
 
-public class BuildEntityIndex {
-    public void buildEntityIndex()
+public class BuildFragmentIndex {
+    public void buildFragmentIndex()
     {
-        System.out.println("buildEntityIndex() ...");
-        File inputFile = new File("./data/knowledgebase/medicine_data.txt");
-        File outputFile = new File("./data/index/entity_index");
+        System.out.println("buildFragmentIndex() ...");
+
+        File inputFile = new File("./data/fragment/entity_fragment.txt");
+        File outputFile = new File("./data/index/fragment_index");
         try
         {
             Analyzer analyzer = new StandardAnalyzer();
             IndexWriter indexWriter = new IndexWriter(outputFile, analyzer,true);
-            int mergeFactor = 100000;    //Ä¬ÈÏÊÇ10
-            int maxBufferedDoc = 1000;  // Ä¬ÈÏÊÇ10
-            int maxMergeDoc = Integer.MAX_VALUE;  //Ä¬ÈÏÎÞÇî´ó
+            int mergeFactor = 100000;    //é»˜è®¤æ˜¯10
+            int maxBufferedDoc = 1000;  // é»˜è®¤æ˜¯10
+            int maxMergeDoc = Integer.MAX_VALUE;  //é»˜è®¤æ— ç©·å¤§
 
+            //indexWriter.DEFAULT_MERGE_FACTOR = mergeFactor;
             indexWriter.setMergeFactor(mergeFactor);
             indexWriter.setMaxBufferedDocs(maxBufferedDoc);
             indexWriter.setMaxMergeDocs(maxMergeDoc);
@@ -45,24 +47,23 @@ public class BuildEntityIndex {
                 if ((++lineCount)%20000==0) System.out.println("line="+lineCount);
 
                 String[] contents = line.split("\t");
-                String sub = contents[0].substring(1, contents[0].length()-1);
-                String prd = contents[1].substring(1, contents[1].length()-1);
-                //ÐÂ°ægstoreÃ¿ÐÐ½áÎ²¶àÒ»¸ö·ûºÅ¡°.¡±,Îª±£ÏÕÆð¼û£¬ÔËÐÐ´úÂëÊ±±£Ö¤Êý¾ÝÊÇÃ»ÓÐ"."µÄ¡£
-                if(1>=contents[2].length()-1)
-                    continue;
-                String obj = contents[2].substring(1, contents[2].length()-1);
-
-
+                String index = contents[0];
+                String inEdge = contents[1];
+                String outEdge = contents[2];
                 Document doc = new Document();
-                Field entityName = new Field("EntityName", sub, Field.Store.YES,
+                Field indexField = new Field("FragmentIndex", index, Field.Store.YES,
                         Field.Index.TOKENIZED,
                         Field.TermVector.WITH_POSITIONS_OFFSETS);
-                Field entityType = new Field("EntityType", obj,
+                Field inEdgeField = new Field("InEdge", inEdge,
                         Field.Store.YES, Field.Index.NO);
-                doc.add(entityName);
-                doc.add(entityType);
+                Field outEdgeField = new Field("OutEdge", outEdge,
+                        Field.Store.YES, Field.Index.NO);
+                doc.add(indexField);
+                doc.add(inEdgeField);
+                doc.add(outEdgeField);
                 indexWriter.addDocument(doc);
             }
+
             indexWriter.optimize();
             indexWriter.close();
         }
@@ -70,12 +71,12 @@ public class BuildEntityIndex {
         {
             e.printStackTrace();
         }
-        System.out.println("buildEntityIndex() done.");
+        System.out.println("buildFragmentIndex() done.");
     }
 
     public static void main(String[] args)
     {
-        BuildEntityIndex bei = new BuildEntityIndex();
-        bei.buildEntityIndex();
+        BuildFragmentIndex bfi = new BuildFragmentIndex();
+        bfi.buildFragmentIndex();
     }
 }

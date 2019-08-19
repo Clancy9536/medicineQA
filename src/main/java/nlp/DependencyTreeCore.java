@@ -60,13 +60,17 @@ public class DependencyTreeCore {
         nodesList = new ArrayList<DependencyTreeNode>();
 
         String[] dsWordArray = odt.toString().split("\n");
-        //tree:
-        //0 ¸ĞÃ°Áé ×¨ÓĞÃû 1 Ö÷Óï
-        //1 ÊÊÓÃ ¶¯´Ê -1 ºËĞÄ´Ê
-        //2 ÓÚ ½é´Ê 1 ²¹Óï
-        //3 Ê²Ã´ ÏŞ¶¨´Ê 4 ¶¨Óï
-        //4 ²¡ Ãû´Ê 2 ½é±ö
-        //5 £¿ ±êµã 1 ±êµã
+//        0 å¯ä»¥ æƒ…æ€è¯ 3 çš„å­—ç»“æ„
+//        1 æ²»ç–— åŠ¨è¯ 0 è¡¥è¯­
+//        2 æ„Ÿå†’ åè¯ 1 å®¾è¯­
+//        3 çš„ ç»“æ„åŠ©è¯ 5 çš„å­—ç»“æ„
+//        4 è¯ åè¯ 5 çš„å­—ç»“æ„
+//        5 çš„ ç»“æ„åŠ©è¯ 7 çŠ¶è¯­
+//        6 æˆåˆ† åè¯ 7 ä¸»è¯­
+//        7 æ˜¯ åŠ¨è¯ -1 æ ¸å¿ƒè¯
+//        8 ä»€ä¹ˆ é™å®šè¯ 9 å®šè¯­
+//        9 ï¼Ÿ åè¯ 7 å®¾è¯­
+
         // generate nodes, add nodes to nodeList
         for(String row: dsWordArray)
         {
@@ -146,25 +150,25 @@ public class DependencyTreeCore {
                 queue.add(chd);
             }
             /*
-             * ÕÒ³öÏÔÊ½Î½´Ê, based on paraphrase_relation
+             * æ‰¾å‡ºæ˜¾å¼è°“è¯, based on paraphrase_relation
              * */
             if(pm.getRelatedRelation(h.word.name) != null)
             {
                 h.posTag = "predicate";
                 res.add(h);
             }
-            //ÕÒ³öÃüÃûÊµÌå ???£¬Lucene inversed index based index already build
+            //æ‰¾å‡ºå‘½åå®ä½“ ???ï¼ŒLucene inversed index based index already build
             String tmp = es.searchEntityAndType(h.word.name);
             if(tmp != null)
             {
                 int st = tmp.indexOf("-");
 
-                if(tmp.substring(st).equals("-Ò©Æ·"))
+                if(tmp.substring(st).equals("-è¯å“"))
                     h.posTag = "entity-medicine";
-                if(tmp.substring(st).equals("-²¡Ö¢"))
+                if(tmp.substring(st).equals("-ç—…ç—‡"))
                     h.posTag = "entity-illness";
             }
-            //ÕÒ³ötype ???, based on type_paraphrase
+            //æ‰¾å‡ºtype ???, based on type_paraphrase
             if(pm.getRelatedType(h.word.name) != null)
             {
                 if(pm.typeMedicineList.contains(h.word.name))
@@ -172,7 +176,7 @@ public class DependencyTreeCore {
 
             }
 
-            System.out.print("level:"+h.levelInTree+" name:"+h.word.name+" posTag:"+h.posTag+" id:"+h.word.position+" relation:"+h.dep_father2child+" father:");
+            System.out.print("level:"+ h.levelInTree+" name:"+ h.word.name+" posTag:"+ h.posTag+" id:"+ h.word.position+" relation:"+ h.dep_father2child+" father:");
             String fa = null;
             if(h.father != null)
                 fa = h.father.word.name;
