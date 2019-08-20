@@ -82,7 +82,7 @@ public class QueryClassifyModel {
         //Medicine
         if(containInstanceMedicine && containInstanceIllness)
             type = queryType.unresolved;
-        else if(containInstanceMedicine)    //¸ĞÃ°Áé
+        else if(containInstanceMedicine)    //æ„Ÿå†’çµ
         {
             if(containConceptIllness || containPredicateM2I)    //
                 type = queryType.askIllness;
@@ -122,8 +122,8 @@ public class QueryClassifyModel {
         containPredicateIllness = false;
         containPredicateM2I = false;
 
-        medicinePredicateList = new ArrayList<String>(Arrays.asList("ÊÊÓÃ","¹¦Ğ§","³É·Ö","½û¼É"));
-        illnessPredicateList = new ArrayList<String>(Arrays.asList("ÌØµã","Ö¢×´","Î£º¦","ÓÖÃû"));
-        m2iPredicateList = new ArrayList<String>(Arrays.asList("ÊÊÓÃ","Ö÷ÖÎ"));
+        medicinePredicateList = new ArrayList<String>(Arrays.asList("é€‚ç”¨","åŠŸæ•ˆ","æˆåˆ†","ç¦å¿Œ"));
+        illnessPredicateList = new ArrayList<String>(Arrays.asList("ç‰¹ç‚¹","ç—‡çŠ¶","å±å®³","åˆå"));
+        m2iPredicateList = new ArrayList<String>(Arrays.asList("é€‚ç”¨","ä¸»æ²»", "æ²»ç–—"));
     }
 }

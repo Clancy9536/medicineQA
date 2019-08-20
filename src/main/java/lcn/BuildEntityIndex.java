@@ -29,9 +29,9 @@ public class BuildEntityIndex {
         {
             Analyzer analyzer = new StandardAnalyzer();
             IndexWriter indexWriter = new IndexWriter(outputFile, analyzer,true);
-            int mergeFactor = 100000;    //Ä¬ÈÏÊÇ10
-            int maxBufferedDoc = 1000;  // Ä¬ÈÏÊÇ10
-            int maxMergeDoc = Integer.MAX_VALUE;  //Ä¬ÈÏÎÞÇî´ó
+            int mergeFactor = 100000;    //é»˜è®¤æ˜¯10
+            int maxBufferedDoc = 1000;  // é»˜è®¤æ˜¯10
+            int maxMergeDoc = Integer.MAX_VALUE;  //é»˜è®¤æ— ç©·å¤§
 
             indexWriter.setMergeFactor(mergeFactor);
             indexWriter.setMaxBufferedDocs(maxBufferedDoc);
@@ -47,7 +47,7 @@ public class BuildEntityIndex {
                 String[] contents = line.split("\t");
                 String sub = contents[0].substring(1, contents[0].length()-1);
                 String prd = contents[1].substring(1, contents[1].length()-1);
-                //ÐÂ°ægstoreÃ¿ÐÐ½áÎ²¶àÒ»¸ö·ûºÅ¡°.¡±,Îª±£ÏÕÆð¼û£¬ÔËÐÐ´úÂëÊ±±£Ö¤Êý¾ÝÊÇÃ»ÓÐ"."µÄ¡£
+                //æ–°ç‰ˆgstoreæ¯è¡Œç»“å°¾å¤šä¸€ä¸ªç¬¦å·â€œ.â€,ä¸ºä¿é™©èµ·è§ï¼Œè¿è¡Œä»£ç æ—¶ä¿è¯æ•°æ®æ˜¯æ²¡æœ‰"."çš„ã€‚
                 if(1>=contents[2].length()-1)
                     continue;
                 String obj = contents[2].substring(1, contents[2].length()-1);

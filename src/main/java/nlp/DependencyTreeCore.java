@@ -165,14 +165,16 @@ public class DependencyTreeCore {
 
                 if(tmp.substring(st).equals("-药品"))
                     h.posTag = "entity-medicine";
-                if(tmp.substring(st).equals("-病症"))
+                String sss = tmp.substring(st);
+                String bbb = "症状";
+                Boolean aaa = sss.equals(bbb);
+                if(tmp.substring(st).equals("-症状"))
                     h.posTag = "entity-illness";
             }
             //找出type ???, based on type_paraphrase
             if(pm.getRelatedType(h.word.name) != null)
             {
-                if(pm.typeMedicineList.contains(h.word.name))
-                    h.posTag = "type-medicine";
+                h.posTag = "type-medicine";
 
             }
 

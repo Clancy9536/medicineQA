@@ -36,7 +36,7 @@ public class SemanticQueryGraph {
 
     String errMsg = "";
     boolean ready = false;
-    static public ArrayList<String> predicatesM2I = new ArrayList<String>(Arrays.asList("ÊÊÓÃ","Ö÷ÖÎ","ÀûÓÚ"));
+    static public ArrayList<String> predicatesM2I = new ArrayList<String>(Arrays.asList("é€‚ç”¨","ä¸»æ²»","åˆ©äº"));
 
     public SemanticQueryGraph(ParaphraseModel pM)
     {
@@ -77,31 +77,31 @@ public class SemanticQueryGraph {
         ArrayList<DependencyTreeNode> neiborsList = new ArrayList<DependencyTreeNode>();
         boolean hasFind = false;
 
-        //Èç¹ûÓĞÀàĞÍ´Ê£¬ÏÈ°ÑÀàĞÍ·ÅÈëÌõ¼ş¼¯ºÏ
+        //å¦‚æœæœ‰ç±»å‹è¯ï¼Œå…ˆæŠŠç±»å‹æ”¾å…¥æ¡ä»¶é›†åˆ
         if(hasType)
         {
             if(typeIllnessList.size()>0)
             {
                 hasFind = true;
-                DependencyTreeNode tmpRelNode = new DependencyTreeNode(new Item("Ö¢×´", Item.ItemType.relation), "predicate");
+                DependencyTreeNode tmpRelNode = new DependencyTreeNode(new Item("ç—‡çŠ¶", Item.ItemType.relation), "predicate");
                 directConditionMap.put(tmpRelNode, typeIllnessList);
             }
         }
 
-        //Í¨¹ıÎ½´ÊÕÒÊôĞÔ
+        //é€šè¿‡è°“è¯æ‰¾å±æ€§
         if(hasPredicate)
         {
             for(DependencyTreeNode dtn: predicateList)
             {
                 DependencyTreeNode p = dtn;
 
-                //pName ÊÇÍ¨¹ı´Êµä±ê×¼»¯µÄÎ½´Ê
+                //pName æ˜¯é€šè¿‡è¯å…¸æ ‡å‡†åŒ–çš„è°“è¯
                 ItemAndScore pItem = pm.getRelatedRelation(p.word.name);
                 String pName = pItem.item.name;
 
-                //ÕÒ³ö Î½´Ê Á½²½Ö®ÄÚµÄÁÚ¾Ó£¬²¢ÁĞ¹ØÏµµÄ¾àÀëËã×÷Áã
-                //Á½²½Ö®ÄÚµÄÇ×ÃÜ¹ØÏµ°üº¬ÁË£ºÖ±½ÓÏàÁ¬¡¢µÄ×Ö½á¹¹¡¢¹²Í¬Ö¸Ïò
-                //ÒòÎª×Ô¶¨Òåtagµ¼ÖÂÒÀ´æ¹ØÏµ»ìÂÒ£¬ÏÈÖ±½ÓÈÏÎªËùÓĞ½Úµã¶¼ÊÇneighbor
+                //æ‰¾å‡º è°“è¯ ä¸¤æ­¥ä¹‹å†…çš„é‚»å±…ï¼Œå¹¶åˆ—å…³ç³»çš„è·ç¦»ç®—ä½œé›¶
+                //ä¸¤æ­¥ä¹‹å†…çš„äº²å¯†å…³ç³»åŒ…å«äº†ï¼šç›´æ¥ç›¸è¿ã€çš„å­—ç»“æ„ã€å…±åŒæŒ‡å‘
+                //å› ä¸ºè‡ªå®šä¹‰tagå¯¼è‡´ä¾å­˜å…³ç³»æ··ä¹±ï¼Œå…ˆç›´æ¥è®¤ä¸ºæ‰€æœ‰èŠ‚ç‚¹éƒ½æ˜¯neighbor
 
                 neiborsList = findNeibors(p,3,true);
                 //neiborsList = ds.nodesList;
@@ -112,7 +112,7 @@ public class SemanticQueryGraph {
 //					System.out.println(pName+" neighbors: "+tmp.word.name);
 
                     //M2P: <?x><predicate><neighbors>
-                    //other predicates£º<?x><predicate>"neighbors"
+                    //other predicatesï¼š<?x><predicate>"neighbors"
                     Item.ItemType objType = Item.ItemType.literal;
                     if(predicatesM2I.contains(pName))
                         objType = Item.ItemType.entity;
@@ -140,17 +140,17 @@ public class SemanticQueryGraph {
             }
         }
 
-        //¸ù¾İÊ¡ÂÔÎ½´ÊµÄÊôĞÔ£¬»¹Ô­ÍêÕûÌõ¼ş
+        //æ ¹æ®çœç•¥è°“è¯çš„å±æ€§ï¼Œè¿˜åŸå®Œæ•´æ¡ä»¶
         if(hasCondition)
         {
             for(DependencyTreeNode dtn: conditionList)
             {
                 ArrayList<String> tmp = pm.getRelatedCondition(dtn.word.name);
-                //pName ÊÇ±ê×¼»¯µÄÎ½´Ê£¬oName ÊÇ±ê×¼»¯µÄ±öÓï
+                //pName æ˜¯æ ‡å‡†åŒ–çš„è°“è¯ï¼ŒoName æ˜¯æ ‡å‡†åŒ–çš„å®¾è¯­
                 String pName = tmp.get(0) , oName = tmp.get(1);
 
                 DependencyTreeNode tmpPreNode = new DependencyTreeNode(new Item(pName, Item.ItemType.relation),"predicate");
-                //ÕâÀïÔİÊ±ÈÏÎªÌõ¼ş¶¼ÊÇliteraryµÄ
+                //è¿™é‡Œæš‚æ—¶è®¤ä¸ºæ¡ä»¶éƒ½æ˜¯literaryçš„
                 DependencyTreeNode tmpObjNode = new DependencyTreeNode(new Item(oName, Item.ItemType.literal),"condition");
                 ArrayList<DependencyTreeNode> attributeList = new ArrayList<DependencyTreeNode>();
                 attributeList.add(tmpObjNode);
@@ -160,7 +160,7 @@ public class SemanticQueryGraph {
             }
         }
 
-        //´¦Àí°üº¬ÊµÌåµ«Ê¡ÂÔÁËÖ®¼ä¹ØÏµµÄÇé¿ö
+        //å¤„ç†åŒ…å«å®ä½“ä½†çœç•¥äº†ä¹‹é—´å…³ç³»çš„æƒ…å†µ
         if(hasEntity && entityIllnessList.size()>0)
         {
             RelationSearcher rs = new RelationSearcher();
@@ -171,7 +171,7 @@ public class SemanticQueryGraph {
             {
                 if(dtn.used == false)
                 {
-                    //°´ÕÕÆµÂÊÑ¡Ôñ½ÇÉ«
+                    //æŒ‰ç…§é¢‘ç‡é€‰æ‹©è§’è‰²
                     String rel = rs.searchRelation("IN", dtn.word.name, type);
                     if(rel != null)
                     {
@@ -198,31 +198,31 @@ public class SemanticQueryGraph {
         boolean hasCondition = findConditions();
         ArrayList<DependencyTreeNode> neiborsList = new ArrayList<DependencyTreeNode>();
         boolean hasFind = false;
-        //Èç¹ûÓĞÀàĞÍ´Ê£¬ÏÈ°ÑÀàĞÍ·ÅÈëÌõ¼ş¼¯ºÏ
+        //å¦‚æœæœ‰ç±»å‹è¯ï¼Œå…ˆæŠŠç±»å‹æ”¾å…¥æ¡ä»¶é›†åˆ
         if(hasType)
         {
             if(typeMedicineList.size()>0)
             {
                 hasFind = true;
-                DependencyTreeNode tmpRelNode = new DependencyTreeNode(new Item("ÊÊÓÃ", Item.ItemType.relation), "predicate");
+                DependencyTreeNode tmpRelNode = new DependencyTreeNode(new Item("é€‚ç”¨", Item.ItemType.relation), "predicate");
                 directConditionMap.put(tmpRelNode, typeMedicineList);
             }
         }
 
-        //Í¨¹ıÎ½´ÊÕÒÊôĞÔ
+        //é€šè¿‡è°“è¯æ‰¾å±æ€§
         if(hasPredicate)
         {
             for(DependencyTreeNode dtn: predicateList)
             {
                 DependencyTreeNode p = dtn;
 
-                //pName ÊÇÍ¨¹ı´Êµä±ê×¼»¯µÄÎ½´Ê
+                //pName æ˜¯é€šè¿‡è¯å…¸æ ‡å‡†åŒ–çš„è°“è¯
                 ItemAndScore pItem = pm.getRelatedRelation(p.word.name);
                 String pName = pItem.item.name;
 
                 if(predicatesM2I.contains(pName))
                 {
-                    //Í¬Ê±°üº¬²¡ÊµÌåºÍÎ½´Ê¡¾Ò©Æ·-²¡¡¿£¬Ö±½ÓÈÏÎªÁ½ÕßÆ¥Åä¡£
+                    //åŒæ—¶åŒ…å«ç—…å®ä½“å’Œè°“è¯ã€è¯å“-ç—…ã€‘ï¼Œç›´æ¥è®¤ä¸ºä¸¤è€…åŒ¹é…ã€‚
                     if(hasEntity && entityIllnessList.size()>0)
                     {
                         hasFind = true;
@@ -237,9 +237,9 @@ public class SemanticQueryGraph {
                 }
                 else
                 {
-                    //ÕÒ³ö Î½´Ê Á½²½Ö®ÄÚµÄÁÚ¾Ó£¬²¢ÁĞ¹ØÏµµÄ¾àÀëËã×÷Áã
-                    //Á½²½Ö®ÄÚµÄÇ×ÃÜ¹ØÏµ°üº¬ÁË£ºÖ±½ÓÏàÁ¬¡¢µÄ×Ö½á¹¹¡¢¹²Í¬Ö¸Ïò
-                    //ÏÈÖ±½ÓÈÏÎªËùÓĞ½Úµã¶¼ÊÇneighbor
+                    //æ‰¾å‡º è°“è¯ ä¸¤æ­¥ä¹‹å†…çš„é‚»å±…ï¼Œå¹¶åˆ—å…³ç³»çš„è·ç¦»ç®—ä½œé›¶
+                    //ä¸¤æ­¥ä¹‹å†…çš„äº²å¯†å…³ç³»åŒ…å«äº†ï¼šç›´æ¥ç›¸è¿ã€çš„å­—ç»“æ„ã€å…±åŒæŒ‡å‘
+                    //å…ˆç›´æ¥è®¤ä¸ºæ‰€æœ‰èŠ‚ç‚¹éƒ½æ˜¯neighbor
 
                     //neiborsList = findNeibors(p,2,true);
                     neiborsList = ds.nodesList;
@@ -248,9 +248,9 @@ public class SemanticQueryGraph {
                     for(DependencyTreeNode tmp: neiborsList)
                     {
                         System.out.println(pName+" neighbors: "+ tmp.word.name);
-                        //ÕâÀïµÄÎ½´Ê²»°üº¬M2P£¬ËùÒÔË³ĞòÎª£º<?x><predicate>"neighbors"
-                        //ÕâÀïÈËÎïµÄobjÊÇentityµÄÖ»ÓĞ"<?x> <ÀàĞÍ> <ÈËÎï>"£¬µ«ÊÇÕâÌõÈıÔª×é»ù±¾²»»áÓÃµ½£¬¹ÊºöÂÔ
-                        //²»Í¬ÓÚµçÓ°µÄ<ÀàĞÍ>¶ÔÓ¦ÓÚºÜ¶àentity£¬ÈËÎïµÄ <Ö°Òµ>¶ÔÓ¦µÄÎªliterary¡£
+                        //è¿™é‡Œçš„è°“è¯ä¸åŒ…å«M2Pï¼Œæ‰€ä»¥é¡ºåºä¸ºï¼š<?x><predicate>"neighbors"
+                        //è¿™é‡Œäººç‰©çš„objæ˜¯entityçš„åªæœ‰"<?x> <ç±»å‹> <äººç‰©>"ï¼Œä½†æ˜¯è¿™æ¡ä¸‰å…ƒç»„åŸºæœ¬ä¸ä¼šç”¨åˆ°ï¼Œæ•…å¿½ç•¥
+                        //ä¸åŒäºç”µå½±çš„<ç±»å‹>å¯¹åº”äºå¾ˆå¤šentityï¼Œäººç‰©çš„ <èŒä¸š>å¯¹åº”çš„ä¸ºliteraryã€‚
                         Triple t = new Triple(new Item("?x", Item.ItemType.variable),
                                 new Item(pName, Item.ItemType.relation),
                                 new Item(tmp.word.name, Item.ItemType.literal));
@@ -272,16 +272,16 @@ public class SemanticQueryGraph {
             }
         }
 
-        //¸ù¾İÊ¡ÂÔÎ½´ÊµÄÊôĞÔ£¬»¹Ô­ÍêÕûÌõ¼ş
+        //æ ¹æ®çœç•¥è°“è¯çš„å±æ€§ï¼Œè¿˜åŸå®Œæ•´æ¡ä»¶
         if(hasCondition)
         {
             for(DependencyTreeNode dtn: conditionList)
             {
                 ArrayList<String> tmp = pm.getRelatedCondition(dtn.word.name);
-                //pName ÊÇ±ê×¼»¯µÄÎ½´Ê£¬oName ÊÇ±ê×¼»¯µÄ±öÓï
+                //pName æ˜¯æ ‡å‡†åŒ–çš„è°“è¯ï¼ŒoName æ˜¯æ ‡å‡†åŒ–çš„å®¾è¯­
                 String pName = tmp.get(0) , oName = tmp.get(1);
                 DependencyTreeNode tmpPreNode = new DependencyTreeNode(new Item(pName, Item.ItemType.relation),"predicate");
-                //ÕâÀïÔİÊ±ÈÏÎªÌõ¼ş¶¼ÊÇliteraryµÄ
+                //è¿™é‡Œæš‚æ—¶è®¤ä¸ºæ¡ä»¶éƒ½æ˜¯literaryçš„
                 DependencyTreeNode tmpObjNode = new DependencyTreeNode(new Item(oName, Item.ItemType.literal),"condition");
                 ArrayList<DependencyTreeNode> attributeList = new ArrayList<DependencyTreeNode>();
                 attributeList.add(tmpObjNode);
@@ -333,8 +333,8 @@ public class SemanticQueryGraph {
                 queue.add(chd);
             }
             /*
-             * ÕÒ³öÀàĞÍ´Ê
-             * ½«ÀàĞÍ´Ê·ÅÈëtypeList
+             * æ‰¾å‡ºç±»å‹è¯
+             * å°†ç±»å‹è¯æ”¾å…¥typeList
              * */
             if(h.posTag == "type-illness")
             {
@@ -366,8 +366,8 @@ public class SemanticQueryGraph {
                 queue.add(chd);
             }
             /*
-             * ÕÒ³öÏÔÊ½Î½´Ê£¬ÕâÀïÓÃ½üÒå´Ê´Êµä
-             * ½«Î½´Ê·ÅÈëpredicateList
+             * æ‰¾å‡ºæ˜¾å¼è°“è¯ï¼Œè¿™é‡Œç”¨è¿‘ä¹‰è¯è¯å…¸
+             * å°†è°“è¯æ”¾å…¥predicateList
              * */
             if(pm.getRelatedRelation(h.word.name) != null)
             {
@@ -394,8 +394,8 @@ public class SemanticQueryGraph {
                 queue.add(chd);
             }
             /*
-             * ÕÒ³ö²¡ÊµÌåºÍÒ©Æ·ÊµÌå,ÕâÀïÖ±½ÓÓÃPosTagÅĞ¶Ï£¬¿ÉÄÜ³öÏÖ Ò©Ãû ²¢²»ÔÚÊı¾İ¼¯ÖĞÒ²»áÈÏ×÷ Ò©Æ·ÊµÌå µÄÇé¿ö¡£
-             * ½«ÊµÌåÖ±½Ó¼ÓÈëentityMedicineListºÍentityIllnessList
+             * æ‰¾å‡ºç—…å®ä½“å’Œè¯å“å®ä½“,è¿™é‡Œç›´æ¥ç”¨PosTagåˆ¤æ–­ï¼Œå¯èƒ½å‡ºç° è¯å å¹¶ä¸åœ¨æ•°æ®é›†ä¸­ä¹Ÿä¼šè®¤ä½œ è¯å“å®ä½“ çš„æƒ…å†µã€‚
+             * å°†å®ä½“ç›´æ¥åŠ å…¥entityMedicineListå’ŒentityIllnessList
              * */
             if(h.posTag.equals("entity-medicine"))
             {
@@ -428,8 +428,8 @@ public class SemanticQueryGraph {
                 queue.add(chd);
             }
             /*
-             * ÕÒ³ö¿ÉÒÔ×÷Îª±öÓï£¨Ìõ¼ş£©µÄ´Ê
-             * ½«Ìõ¼ş´Ê¼ÓÈëconditionList
+             * æ‰¾å‡ºå¯ä»¥ä½œä¸ºå®¾è¯­ï¼ˆæ¡ä»¶ï¼‰çš„è¯
+             * å°†æ¡ä»¶è¯åŠ å…¥conditionList
              * */
             String name = h.word.name;
             if( pm.conditionParaphraseDict.get(name)!=null )
@@ -463,8 +463,8 @@ public class SemanticQueryGraph {
             int hDep = dep.get(h), curDep;
             if(h.father != null && !dep.containsKey(h.father) && !h.father.equals(from.get(h)))
             {
-                //¿¼ÂÇ²¢ÁĞ¹ØÏµ£¬²¢ÁĞ±ß¾àÀëÎª0
-                if(considerCoordinative && h.dep_father2child.equals("²¢ÁĞ"))
+                //è€ƒè™‘å¹¶åˆ—å…³ç³»ï¼Œå¹¶åˆ—è¾¹è·ç¦»ä¸º0
+                if(considerCoordinative && h.dep_father2child.equals("å¹¶åˆ—"))
                     curDep = hDep;
                 else
                     curDep = hDep + 1;
@@ -479,7 +479,7 @@ public class SemanticQueryGraph {
             {
                 if(!dep.containsKey(chd) && !chd.equals(from.get(h)))
                 {
-                    if(considerCoordinative && chd.dep_father2child.equals("²¢ÁĞ"))
+                    if(considerCoordinative && chd.dep_father2child.equals("å¹¶åˆ—"))
                         curDep = hDep;
                     else
                         curDep = hDep + 1;
@@ -559,7 +559,7 @@ public class SemanticQueryGraph {
             if(entityIllnessList.size()>0)
             {
                 sub = new Item("?x", Item.ItemType.variable);
-                pre = new Item("ÊÊÓÃ", Item.ItemType.relation);
+                pre = new Item("é€‚ç”¨", Item.ItemType.relation);
                 obj = new Item(entityIllnessList.get(0).word.name, Item.ItemType.literal);
 
                 triple = new Triple(sub,pre,obj);
@@ -574,7 +574,7 @@ public class SemanticQueryGraph {
                     String pName = pItem.item.name;
 
                     Item.ItemType objType = Item.ItemType.literal;
-                    if(predicatesM2I.contains(pName)||pName.equals("ÊÊÓÃ"))
+                    if(predicatesM2I.contains(pName)||pName.equals("é€‚ç”¨"))
                         objType = Item.ItemType.entity;
 
                     for(DependencyTreeNode tmp: attributeList)
@@ -583,7 +583,7 @@ public class SemanticQueryGraph {
                         pre = new Item(pName, Item.ItemType.relation);
                         obj = new Item(tmp.word.name,objType);
 
-                        if(pName.equals("ÊÊÓÃ"))
+                        if(pName.equals("é€‚ç”¨"))
                         {
                             String objStr = pm.getRelatedType(tmp.word.name).item.name;
                             obj = new Item(objStr,objType);
@@ -610,11 +610,11 @@ public class SemanticQueryGraph {
             if(entityMedicineList.size()>0)
             {
                 //sub = new Item(entityStringList.get(0),ItemType.entity);
-                //pre = new Item("¼ò½é",ItemType.relation);
+                //pre = new Item("ç®€ä»‹",ItemType.relation);
                 //obj = new Item("?x",ItemType.variable);
 
                 sub = new Item("?x", Item.ItemType.variable);
-                pre = new Item("ĞÕÃû", Item.ItemType.relation);
+                pre = new Item("å§“å", Item.ItemType.relation);
                 obj = new Item(entityMedicineList.get(0).word.name, Item.ItemType.literal);
 
                 triple = new Triple(sub,pre,obj);

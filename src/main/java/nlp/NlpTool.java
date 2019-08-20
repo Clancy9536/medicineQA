@@ -35,9 +35,9 @@ public class NlpTool {
 
     public DependencyTree getOrignalDSTree(String sentence)
     {
-        //sentence = "¸ĞÃ°ÁéÊÊÓÃÓÚÊ²Ã´²¡£¿
-        //s[0] = "¸ĞÃ°Áé" "ÊÊÓÃ" "ÓÚ" "Ê²Ã´" "²¡" "?"
-        //s[1] = "×¨ÓĞÃû" "¶¯´Ê" "½é´Ê" "ÏŞ¶¨´Ê" "Ãû´Ê" "±êµã"
+        //sentence = "æ„Ÿå†’çµé€‚ç”¨äºä»€ä¹ˆç—…ï¼Ÿ
+        //s[0] = "æ„Ÿå†’çµ" "é€‚ç”¨" "äº" "ä»€ä¹ˆ" "ç—…" "?"
+        //s[1] = "ä¸“æœ‰å" "åŠ¨è¯" "ä»‹è¯" "é™å®šè¯" "åè¯" "æ ‡ç‚¹"
         String[][] s = posTagger.tag2Array(sentence);
         DependencyTree tree = null;
         try
@@ -45,12 +45,12 @@ public class NlpTool {
             if(s!=null && s[0].length>0)
             {
                 //tree:
-                //0 ¸ĞÃ°Áé ×¨ÓĞÃû 1 Ö÷Óï
-                //1 ÊÊÓÃ ¶¯´Ê -1 ºËĞÄ´Ê
-                //2 ÓÚ ½é´Ê 1 ²¹Óï
-                //3 Ê²Ã´ ÏŞ¶¨´Ê 4 ¶¨Óï
-                //4 ²¡ Ãû´Ê 2 ½é±ö
-                //5 £¿ ±êµã 1 ±êµã
+                //0 æ„Ÿå†’çµ ä¸“æœ‰å 1 ä¸»è¯­
+                //1 é€‚ç”¨ åŠ¨è¯ -1 æ ¸å¿ƒè¯
+                //2 äº ä»‹è¯ 1 è¡¥è¯­
+                //3 ä»€ä¹ˆ é™å®šè¯ 4 å®šè¯­
+                //4 ç—… åè¯ 2 ä»‹å®¾
+                //5 ï¼Ÿ æ ‡ç‚¹ 1 æ ‡ç‚¹
                 tree = parser.parse2T(s[0],s[1]);
                 System.out.println("DependencyTree:\n" + tree.toString());
             }

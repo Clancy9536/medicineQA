@@ -29,8 +29,8 @@ public class Main {
 
     public static void main (String[] args) {
         load();
-        //String question = "感冒灵适用的病是什么？";
-        String question = "可以治疗感冒的药的成分是什么？";
+        //String question = "鎰熷啋鐏甸�傜敤鐨勭梾鏄粈涔堬紵";
+        String question = "鍙互娌荤枟鎰熷啋鐨勮嵂鐨勬垚鍒嗘槸浠�涔堬紵";
         OutputStreamWriter writer = new OutputStreamWriter(System.out);
         ArrayList<StructuredQuery> sparql = getStructuredQueryList(question, writer);
 
