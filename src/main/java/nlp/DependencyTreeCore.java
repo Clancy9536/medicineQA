@@ -165,9 +165,7 @@ public class DependencyTreeCore {
 
                 if(tmp.substring(st).equals("-药品"))
                     h.posTag = "entity-medicine";
-                String sss = tmp.substring(st);
-                String bbb = "症状";
-                Boolean aaa = sss.equals(bbb);
+
                 if(tmp.substring(st).equals("-症状"))
                     h.posTag = "entity-illness";
             }

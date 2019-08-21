@@ -227,7 +227,7 @@ public class SemanticQueryGraph {
                     {
                         hasFind = true;
                         directConditionMap.put(p, entityIllnessList);
-                        System.out.println("predicate:"+pName+" movie:"+entityIllnessList.get(0).word.name);
+                        System.out.println("predicate:"+pName+" illness:"+entityIllnessList.get(0).word.name);
                     }
                     else
                     {
