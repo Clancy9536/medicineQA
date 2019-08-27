@@ -28,30 +28,6 @@ public class ParaphraseModel {
         loadTypeParaphraseDict();
         loadConditionParaphraseDict();
 
-        // the type of medicine ref "http://ypk.qqyy.com/classify.html"
-        typeMedicineList.add("¸ĞÃ°·¢ÈÈ");
-        typeMedicineList.add("Æ¤·ôÓÃÒ©");
-        typeMedicineList.add("³¦Î¸ÓÃÒ©");
-        typeMedicineList.add("Îå¹ÙÓÃÒ©");
-        typeMedicineList.add("ºôÎüÏµÍ³Àà");
-        typeMedicineList.add("¼ÒÍ¥³£±¸");
-        typeMedicineList.add("ÄĞ¿ÆÓÃÒ©");
-        typeMedicineList.add("¸¾¿ÆÓÃÒ©");
-        typeMedicineList.add("¶ù¿ÆÓÃÒ©");
-        typeMedicineList.add("Î¬ÉúËØ¼°ÓªÑøÀà");
-        typeMedicineList.add("ĞÄÄÔÑª¹Ü");
-        typeMedicineList.add("¸Îµ¨ÒÈÓÃÒ©");
-        typeMedicineList.add("Éö²¡");
-        typeMedicineList.add("ÄÚ·ÖÃÚÊ§³£");
-        typeMedicineList.add("Éñ¾­");
-        typeMedicineList.add("Ö×Áö¿Æ");
-        typeMedicineList.add("·çÊªÃâÒß¿Æ");
-        typeMedicineList.add("¿¹¼ÄÉú³æÀà");
-        typeMedicineList.add("Ë®µç½âÖÊ¼°Ëá¼îÆ½ºâ");
-        typeMedicineList.add("ÑªÒº¼²²¡Àà");
-        typeMedicineList.add("¿¹½áºË¼°Âé·çÀà");
-        typeMedicineList.add("ĞÔ²¡ÓÃÒ©");
-        typeMedicineList.add("±£½¡Æ·");
     }
 
     public void loadRelationParaphraseDict()
@@ -68,7 +44,7 @@ public class ParaphraseModel {
                 if (line.startsWith("#")) continue;
 
                 String[] contents = line.split("\t");
-                if(contents.length!=3)	//¶àÓÚÁ½¸öTAB»òÉÙÓÚÁ½¸öTABµÄ£¬Ö±½ÓÅ×Æú¡£
+                if(contents.length!=3)	//å¤šäºä¸¤ä¸ªTABæˆ–å°‘äºä¸¤ä¸ªTABçš„ï¼Œç›´æ¥æŠ›å¼ƒã€‚
                     continue;
 
                 String relation = contents[0], paraphrase = contents[1];
@@ -149,7 +125,7 @@ public class ParaphraseModel {
                 if (line.startsWith("#")) continue;
 
                 String[] contents = line.split("\t");
-                if(contents.length!=3)	//¶àÓÚÁ½¸öTAB»òÉÙÓÚÁ½¸öTABµÄ£¬Ö±½ÓÅ×Æú¡£
+                if(contents.length!=3)	//å¤šäºä¸¤ä¸ªTABæˆ–å°‘äºä¸¤ä¸ªTABçš„ï¼Œç›´æ¥æŠ›å¼ƒã€‚
                     continue;
 
                 String paraphrase = contents[0], relation = contents[1], condition = contents[2];

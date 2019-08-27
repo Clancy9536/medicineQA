@@ -9,9 +9,16 @@ package structs;
  **/
 
 public class Triple {
+    public Argument arg1, arg2, rel;
     public Item subject, object, predicate;
     public int subPosition, objPosition, prePosition;
     double score;
+
+
+    public Triple (Argument s, Argument p, Argument o)
+    {
+        arg1 = s; rel = p; arg2 = o;
+    }
 
     public Triple (Item s, Item p, Item o)
     {
@@ -31,12 +38,15 @@ public class Triple {
         score = sco;
     }
 
+//    public String toString()
+//    {
+//        return subject+"\t"+predicate+"\t"+object;
+//    }
+
     public String toString()
     {
-        return subject+"\t"+predicate+"\t"+object;
+        return arg1 + "\t"+ rel +"\t"+ arg2;
     }
-
-
     public int hashCode()
     {
         return this.toString().hashCode();
